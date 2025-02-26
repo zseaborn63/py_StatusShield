@@ -1,7 +1,14 @@
+
+def perform_cycle():
+    """"""
+    return
+
+
 if __name__ == '__main__':
-    print("Starting....")
-    print("Press 'Ctrl' + 'C' to Quit.")
+    print("Raising the StatusShield ...")
+    print("Press 'Ctrl' + 'C' to lower the StatusShield.")
     try:
-        pass
+        while True:
+            perform_cycle()
     except KeyboardInterrupt:
-        print("Exiting the Program")
+        print("Stowing the StatusShield away.")
