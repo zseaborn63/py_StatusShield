@@ -27,15 +27,22 @@ def choose_random_number(inclusive_min, exclusive_max):
 
 def change_active_window():
     """"""
+def change_active_window():
+    """
+        Switch the active window 1-5 times in quick succession, sleeping for a very short duration, which is also chosen
+            at random, in between the window changes.
+
+    :return: N/A
+    """
     print("Repainting Shield!")
 
-    max_switches = choose_random_number(1, 6)
+    sleep_times = [float(f"0.{choose_random_number(11, 16)}") for _ in range(1, choose_random_number(1, 6))]
 
     pyautogui.keyDown('alt')
 
-    for _ in range(1, max_switches):
+    for _sleep_time in sleep_times:
         pyautogui.press('tab')
-        sleep(0.13)
+        sleep(_sleep_time)  # Issues:  "How to introduce randomness here": "how to make it a float?": "how to make it a list comprehension?"
 
     pyautogui.keyUp('alt')
 
