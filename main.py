@@ -24,6 +24,37 @@ def choose_random_number(inclusive_min, exclusive_max):
 
     return num
 
+
+
+def move_mouse_randomly():
+    """
+        Move the mouse pointer 4-9 times to a randomly chosen set of coordinates on the screen.  It will be randomly
+        chosen to take between 1 and 5 seconds for the shift in mouse pointer position to occur.  The program will sleep
+        for 6-10 seconds, chosen at random each time, in between pointer shifts.
+
+    :return: N/A
+    """
+
+    max_wiggles = choose_random_number(4, 10)
+
+    screen = pyautogui.size()
+    width_max = screen[0] - 200
+    height_max = screen[1] - 200
+
+    for _ in range(1, max_wiggles):
+        print("Shifting Shield!")
+        _rand_x = choose_random_number(100, width_max)
+        _rand_y = choose_random_number(100, height_max)
+        _rand_duration = choose_random_number(1, 6)
+        pyautogui.moveTo(
+            x=_rand_x,
+            y=_rand_y,
+            duration=_rand_duration
+        )
+        sleep_num = choose_random_number(6, 11)
+        sleep(sleep_num)
+
+
 def perform_cycle():
     """"""
     return
