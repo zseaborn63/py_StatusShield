@@ -1,3 +1,10 @@
+import pyautogui
+import secrets
+import sys
+
+from time import sleep
+
+pyautogui.FAILSAFE = False
 
 def perform_cycle():
     """"""
