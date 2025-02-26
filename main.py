@@ -2,6 +2,7 @@ import pyautogui
 import secrets
 import sys
 
+from datetime import datetime
 from time import sleep
 
 pyautogui.FAILSAFE = False
@@ -25,8 +26,17 @@ def choose_random_number(inclusive_min, exclusive_max):
     return num
 
 
-def change_active_window():
-    """"""
+def print_msg(msg):
+    """
+        Quick way to print a message preceded by the datetime of its printing.
+
+    :param str msg: Message to be printed with the datetime
+    :return: N/A
+    """
+    _now = datetime.now().strftime("%d/%m/%Y %H:%M:%S.%f")[:-3]
+    print(f"{_now}:  {msg}")
+
+
 def change_active_window():
     """
         Switch the active window 1-5 times in quick succession, sleeping for a very short duration, which is also chosen
@@ -34,7 +44,7 @@ def change_active_window():
 
     :return: N/A
     """
-    print("Repainting Shield!")
+    print_msg("Repainting Shield!")
 
     sleep_times = [float(f"0.{choose_random_number(11, 16)}") for _ in range(1, choose_random_number(1, 6))]
 
@@ -71,7 +81,7 @@ def move_mouse_randomly():
     ]
 
     for coordinates in repositions:
-        print("Shifting Shield!")
+        print_msg("Shifting Shield!")
 
         _rand_duration = choose_random_number(1, 6)
         pyautogui.moveTo(
@@ -91,22 +101,22 @@ def perform_cycle():
 
     :return: N/A
     """
-    print("Shielding the Status!!")
+    print_msg("Shielding the Status!!")
 
     change_active_window()
     move_mouse_randomly()
     sys.stdout.flush()
 
     sleep_time = choose_random_number(20, 61)
-    print(f"Resting for just a moment, only {sleep_time} seconds, and then back to work!")
+    print_msg(f"Resting for just a moment, only {sleep_time} seconds, and then back to work!")
     sleep(sleep_time)
 
 
 if __name__ == '__main__':
-    print("Raising the StatusShield ...")
-    print("Press 'Ctrl' + 'C' to lower the StatusShield.")
+    print_msg("Raising the StatusShield ...")
+    print_msg("Press 'Ctrl' + 'C' to lower the StatusShield.")
     try:
         while True:
             perform_cycle()
     except KeyboardInterrupt:
-        print("Stowing the StatusShield away.")
+        print_msg("Stowing the StatusShield away.")
