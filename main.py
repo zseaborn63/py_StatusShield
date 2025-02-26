@@ -25,6 +25,20 @@ def choose_random_number(inclusive_min, exclusive_max):
     return num
 
 
+def change_active_window():
+    """"""
+    print("Repainting Shield!")
+
+    max_switches = choose_random_number(1, 6)
+
+    pyautogui.keyDown('alt')
+
+    for _ in range(1, max_switches):
+        pyautogui.press('tab')
+        sleep(0.13)
+
+    pyautogui.keyUp('alt')
+
 
 def move_mouse_randomly():
     """
