@@ -71,7 +71,13 @@ def move_mouse_randomly():
 
 def perform_cycle():
     """"""
-    return
+    print("Shielding the Status!!")
+    change_active_window()
+    move_mouse_randomly()
+    sys.stdout.flush()
+
+    sleep_time = choose_random_number(20, 61)
+    sleep(sleep_time)
 
 
 if __name__ == '__main__':
