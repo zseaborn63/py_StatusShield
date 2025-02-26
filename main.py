@@ -70,13 +70,20 @@ def move_mouse_randomly():
 
 
 def perform_cycle():
-    """"""
+    """
+        Perform one 'cycle' of the StatusShield.  This involves changing the active window, moving the mouse at random,
+            force-clearing stdout, and sleeping for a random period of time between 20 and 60 seconds.
+
+    :return: N/A
+    """
     print("Shielding the Status!!")
+
     change_active_window()
     move_mouse_randomly()
     sys.stdout.flush()
 
     sleep_time = choose_random_number(20, 61)
+    print(f"Resting for just a moment, only {sleep_time} seconds, and then back to work!")
     sleep(sleep_time)
 
 
